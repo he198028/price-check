@@ -4,6 +4,7 @@ http://localhost:8080/getBestPrice?origin=MAD&destination=MUC&departureDate=2019
 There are two setting in application.properties that you can change before running the app:
 
 flight-api-url=http://localhost:8090/test
+
 number-of-top-offers=1
 
 Replace flight-api-url with the actual api url. number-of-top-offers is the top offers to show, e.g. 3.
