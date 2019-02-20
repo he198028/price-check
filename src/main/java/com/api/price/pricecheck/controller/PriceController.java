@@ -37,6 +37,8 @@ public class PriceController {
                                        @RequestParam(value = "destination") String destination,
                                        @RequestParam(value = "departureDate") String date,
                                        @RequestParam(value = "max") int max) throws Exception {
+
+        // Check valid date format
         try {
             FORMATTER.parse(date);
         } catch (Exception e) {
@@ -57,6 +59,9 @@ public class PriceController {
         }
     }
 
+    /**
+     *  Get the best offers
+    */
     void getCheapestOffer(FlightResponse flights, int offerLimit) {
         List<FlightData> flightData = flights.getData();
         if (flightData.size() <= numberOfTopOffers) {
@@ -76,6 +81,9 @@ public class PriceController {
         flights.setData(newFlightData);
     }
 
+    /**
+     *  Get response from API
+     */
     String getPricesFromApi(String origin, String destination, String date, int max) {
         if (origin==null || destination==null || date==null) {
             throw new IllegalArgumentException("Invalid parameters");
